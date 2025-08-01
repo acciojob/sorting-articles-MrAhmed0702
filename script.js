@@ -1,23 +1,23 @@
-//your JS code here. If required.
-const bands = [
-  'The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean',
-  'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans',
-  'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'
-];
+function stripArticle(title) {
+      return title.replace(/^(a |an |the )/i, '').trim();
+    }
 
-function stripArticle(name) {
-  return name.replace(/^(a |an |the )/i, '').trim();
-}
+    function sortTitles() {
+      const input = document.getElementById('titleInput').value;
+      const titles = input.split(',').map(t => t.trim()).filter(Boolean);
 
-const sortedBands = bands.sort((a, b) => {
-  const bandA = stripArticle(a).toLowerCase();
-  const bandB = stripArticle(b).toLowerCase();
-  return bandA.localeCompare(bandB);
-});
+      const sorted = titles.sort((a, b) => {
+        const strippedA = stripArticle(a).toLowerCase();
+        const strippedB = stripArticle(b).toLowerCase();
+        return strippedA.localeCompare(strippedB);
+      });
 
-const bandList = document.getElementById('band');
-sortedBands.forEach(band => {
-  const li = document.createElement('li');
-  li.textContent = band;
-  bandList.appendChild(li);
-});
+      const list = document.getElementById('bandList');
+      list.innerHTML = ''; 
+
+      sorted.forEach(title => {
+        const li = document.createElement('li');
+        li.textContent = title;
+        list.appendChild(li);
+      });
+    }
