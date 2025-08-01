@@ -5,8 +5,8 @@ function stripArticle(title) {
 }
 
 const titles = bands.sort((a, b) => {
-  const strippedA = stripArticle(a.toLowerCase());
-  const strippedB = stripArticle(b.toLowerCase());
+  const strippedA = stripArticle(a);
+  const strippedB = stripArticle(b);
   return strippedA.localeCompare(strippedB);
 });
 
