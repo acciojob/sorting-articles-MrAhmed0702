@@ -1,12 +1,10 @@
-// Function to remove 'a', 'an', 'the' from the beginning for sorting
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
 function stripArticle(title) {
   return title.replace(/^(a |an |the )/i, '').trim();
 }
 
-let input = prompt("Enter band titles separated by commas:");
-let titles = input.split(',').map(title => title.trim()).filter(Boolean);
-
-titles.sort((a, b) => {
+const titles = bands.sort((a, b) => {
   const strippedA = stripArticle(a.toLowerCase());
   const strippedB = stripArticle(b.toLowerCase());
   return strippedA.localeCompare(strippedB);
