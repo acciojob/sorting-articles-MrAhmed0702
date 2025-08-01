@@ -15,5 +15,6 @@ const ul = document.getElementById("band");
 titles.forEach(title => {
   const li = document.createElement("li");
   li.textContent = title;
+li.style.listStyleType = 'square';
   ul.appendChild(li);
 });
