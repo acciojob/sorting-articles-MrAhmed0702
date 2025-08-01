@@ -11,7 +11,7 @@ const titles = bands.sort((a, b) => {
 });
 
 
-const ul = document.getElementById("band");
+const ul = document.getElementById("bands");
 titles.forEach(title => {
   const li = document.createElement("li");
   li.textContent = title;
